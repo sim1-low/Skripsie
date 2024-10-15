@@ -4,7 +4,7 @@ const QuizScoreSchema = new mongoose.Schema({
     name: String,
     email: String,
     date: Date,
-    score: Number,
+    score: Number
 }, {unique: ['email']});
 
 const QuizScoreModel = mongoose.model("quizScore", QuizScoreSchema)
