@@ -6,14 +6,15 @@ const QuizScoreModel = require('./models/quizScore')
 const dotenv = require('dotenv').config();
 
 const app = express()
-app.use(express.json())
+
 app.use(cors(
     {
-     origin: ["https://skripsie.vercel.app"],
+     origin: ["https://skripsie.vercel.app/"],
      methods: ["POST", "GET"],
      credentials: true
  }
 ));
+app.use(express.json())
 
 
 
