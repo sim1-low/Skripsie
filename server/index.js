@@ -18,11 +18,11 @@ app.use(cors())
 //mongoose.connect("mongodb://localhost:27017/student");
 
 mongoose.connect("mongodb+srv://simonecarstens1:eeZLO9E5rxNL9Ibz@clusters.cyamn.mongodb.net/student");
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }).then(() => console.log('MongoDB connected'))
-    .catch(err => console.error(err));
+// mongoose.connect(process.env.MONGODB_URI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   }).then(() => console.log('MongoDB connected'))
+//     .catch(err => console.error(err));
 
 
 
