@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(cors())
 
 // // {
-//     origin: {""},
+//     origin: {"https://skripsie-qjut.vercel.app"},
 //     methods: {"POST", "GET"},
 //     credentials: true
 // }
