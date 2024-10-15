@@ -9,6 +9,12 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+// // {
+//     origin: {""},
+//     methods: {"POST", "GET"},
+//     credentials: true
+// }
+
 //mongoose.connect("mongodb://localhost:27017/student");
 
 mongoose.connect("mongodb+srv://simonecarstens1:eeZLO9E5rxNL9Ibz@clusters.cyamn.mongodb.net/student");
