@@ -1,0 +1,27 @@
+
+
+.image-container {
+      width: 100%;  
+    }
+
+    .image-container img {
+      width: 70%;
+      height: auto;
+      object-fit: cover;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .next-button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #4a4a4a;
+      background-color: #f5b921;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 5px 5px 10px #bec3c9, -5px -5px 10px #ffffff;
+    }
+
+   
