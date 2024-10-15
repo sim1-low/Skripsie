@@ -162,7 +162,7 @@ export const Quiz_1 = () => {
         } else{
             const currentDate = new Date();
             setQuizCompleted(true);
-            axios.post('http://localhost:3001/quizScore', {name:name, email:email, date:currentDate, quizid:"quiz1", score:correctAnswers})
+            axios.post('http://skripsie-qjut.vercel.app/quizScore', {name:name, email:email, date:currentDate, quizid:"quiz1", score:correctAnswers})
             .then(result => {console.log(result)})
         }
     };
