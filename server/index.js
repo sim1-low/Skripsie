@@ -8,7 +8,8 @@ const dotenv = require('dotenv').config();
 const app = express()
 app.use(express.json())
 app.use(cors({
-     origin: "https://skripsie.vercel.app"
+     origin: "https://skripsie.vercel.app",
+     credentials: true
  }));
 
 
