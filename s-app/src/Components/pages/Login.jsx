@@ -25,7 +25,7 @@ function Login(){
       
   
       try {
-          const response = await axios.post('https://skripsie-backend.vercel.app//login', {email, password });
+          const response = await axios.post('https://skripsie-backend.vercel.app/login', {email, password });
           console.log('API response', response);
 
           if (response.data && 
