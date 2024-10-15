@@ -49,6 +49,8 @@ app.post("/login", (req, res) =>{
     })
 })
 
+app.options('/register', cors());
+
 app.post('/register', (req, res) => {
     StudentModel.create(req.body)
     .then(students => res.json(students))
