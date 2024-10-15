@@ -13,7 +13,7 @@ function Signup(){
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('https://skripsie-backend.vercel.app//register', {name, email, password})
+        axios.post('https://skripsie-backend.vercel.app/register', {name, email, password})
         .then(result => {console.log(result)
         navigate('/login')
         })
