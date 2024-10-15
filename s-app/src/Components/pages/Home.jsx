@@ -11,7 +11,7 @@ export const Home = () => {
 
 
     useEffect(() => {
-        axios.get('https://skripsie-qjut.vercel.app/quizScores')
+        axios.get('https://skripsie-backend.vercel.app//quizScores')
             .then(response => {
                 // Filter to include only the first attempt for each user and quiz
                 const uniqueScores = {};
