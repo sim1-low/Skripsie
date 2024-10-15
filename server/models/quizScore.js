@@ -5,7 +5,7 @@ const QuizScoreSchema = new mongoose.Schema({
     email: String,
     date: Date,
     score: Number,
-    quizid: Number,
+    // quizid: Number,
 }, {unique: ['email']});
 
 const QuizScoreModel = mongoose.model("quizScore", QuizScoreSchema)
