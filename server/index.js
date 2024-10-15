@@ -7,13 +7,15 @@ const dotenv = require('dotenv').config();
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+app.use(cors(
+    {
+     origin: {"https://skripsie.vercel.app"},
+     methods: {"POST", "GET"},
+     credentials: true
+ }
+));
 
-// // {
-//     origin: {"https://skripsie-qjut.vercel.app"},
-//     methods: {"POST", "GET"},
-//     credentials: true
-// }
+
 
 //mongoose.connect("mongodb://localhost:27017/student");
 
