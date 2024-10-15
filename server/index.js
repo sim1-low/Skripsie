@@ -24,6 +24,10 @@ mongoose.connect("mongodb+srv://simonecarstens1:eeZLO9E5rxNL9Ibz@clusters.cyamn.
 //   }).then(() => console.log('MongoDB connected'))
 //     .catch(err => console.error(err));
 
+app.get("/",(req, res) => {
+    res.json("Hello");
+})
+
 
 
 app.post("/login", (req, res) =>{
