@@ -94,6 +94,7 @@ export const Quiz_1 = () => {
 
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [quizCompleted, setQuizCompleted] = useState(0);
+     const [quizStarted, setQuizStarted] = useState(false);
 
     const {email, name} = useSelector((state) => state.credentials);
 
