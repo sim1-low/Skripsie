@@ -27,11 +27,11 @@ function Signup(){
                 <form onSubmit={handleSubmit}>
                 <div>
                     <label class="input-label" htmlFor="name">
-                        Name
+                        Create Username
                     </label>
                     <input class="input-group"
                         type="name"
-                        placeholder="Enter Name"
+                        placeholder="Enter Username"
                         autoComplete="off"
                         name="name"
                         onChange={(e) => setName(e.target.value)}
