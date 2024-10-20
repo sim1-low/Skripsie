@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./Home.css"
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 
 export const Home = () => {
@@ -45,29 +45,17 @@ export const Home = () => {
     
     return(
         <div className="home-container">
-        <motion.div
-          className="welcome-section"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-            <h1>Welcome, {name}!</h1>
-            <p>Check out your position on the leaderboard below.</p>
-        </motion.div>
-
+            <div className="welcome-section">
+                <h1>Welcome, {name}!</h1>
+                <p>Check out your position on the leaderboard below.</p>
+            </div>
         <div className="leaderboard-layout">
         <div className="left-container">
-        <motion.div
-                    className="leaderboard-section"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
+        <div className="leaderboard-section">
                     <div className="leaderboard-header">
                         <h2>Leaderboard</h2>
                     </div>
-
-
+            
             <div className="table-container">
             <table>
                 <thead>
@@ -90,17 +78,12 @@ export const Home = () => {
                 </tbody>
             </table>
             </div>
-            </motion.div>
+            </div>
             </div>
             
 
             <div className="right-container">
-            <motion.div
-                    className="additional-info"
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                >
+            <div className="additional-info" >
                     <h3>Instructions for the website</h3>
                     <p>
                     <ul className="list">
@@ -110,7 +93,7 @@ export const Home = () => {
                         <li>Note: You can attempt the quiz as many times as you like, but only your first attempt will show on the leaderboard</li>
                         </ul>
                     </p>
-                </motion.div>
+                </div>
                 </div>
             </div>
     </div>
