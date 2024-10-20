@@ -10,7 +10,9 @@ import supply_middle_demand_right from './qimages/supply-middle-demand-right.png
 import supply_right_demand_left from './qimages/supply-right-demand-left.png'
 import supply_right_demand_middle from './qimages/supply-right-demand-middle.png'
 import supply_right_demand_right from './qimages/supply-right-demand-right.png'
+import QuizTut from './qimages/QuizTut.mp4'
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const questions = [
@@ -170,97 +172,103 @@ export const Quiz_1 = () => {
 
 
 
-    return(
-            
-            <div class="supply-demand-container">
-                {/* <h3>Quiz</h3> */}
-                {!quizCompleted ? ( 
-                    <>
-                    
-                <div class="grid-container">
-                
-
-
-                <div class="quadrant quadrant1">
-                <div class="graph-container">
-                    <img src={currentImage} class="graph-image"/>
+return (
+    <div className="supply-demand-container">
+        {!quizStarted ? (
+            <div className="quiz-completed">
+                <h4>Play the video to see how to complete the quiz</h4>
+                <video width="720" style={{ marginBottom: '-40px' }} controls>
+                        <source src={QuizTut} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                <div>  
+                <button onClick={() => setQuizStarted(true)} className="submit-button" >
+                    Start Quiz
+                </button>
                 </div>
-                <div class="controls-container">
-                    <div class="slider-container">
-                        <label htmlFor="supply-slider">Supply</label>
-                        <input
-                            type="range"
-                            id="supply-slider"
-                            min={-1}
-                            max={1}
-                            step={1}
-                            value={supplyPosition}
-                            // onChange={(e) => setSupplyPosition(parseInt(e.target.value))}
-                            onChange={handleSupplyChange}
-                            class="slider-sup"
-                            disabled={hasSubmitted}
-                            />
-                        <span class="slider-value">{['Left', 'Middle', 'Right'][supplyPosition + 1]}</span>
-                    </div>
-
-                    <div class="slider-container">
-                        <label htmlFor="demand-slider">Demand</label>
-                        <input
-                            type="range"
-                            id="demand-sldier"
-                            min={-1}
-                            max={1}
-                            step={1}
-                            value={demandPosition}
-                            // onChange={(e)=> setDemandPosition(parseInt(e.target.value))}
-                            onChange={handleDemandChange}
-                            class="slider-dem"
-                            disabled={hasSubmitted}
-                            />
-                        <span class="slider-value">{['Left', 'Middle', 'Right'][demandPosition + 1]}</span>
-                    </div>
-
-                    {/* <button onClick={handleApplyChanges} class="apply-button" disabled={hasSubmitted}>Apply Changes</button> */}
-                    
-                </div>
-                </div>
-
-                <div class="quadrant quadrant2">
-                <div class="question-container">
-                    <p className="explanation">{questions[currentQuestionIndex].question}</p>
-                    <button onClick={handleSubmit} class="submit-button" disabled={hasSubmitted}>Submit Answer</button>
-                </div>
-                
-
-                {showAnswer && (
-                    <div class="answer-container">
-                        <p className={isCorrect ? "correct" : "incorrect"}>
-                            {isCorrect ? "Correct!" : "Incorrect"}
-                        </p>
-                        <p className="explanation">
-                            {questions[currentQuestionIndex].answer}
-                        </p>
-                        <button onClick={handleNextQuestion} className="next-button">
-                            {currentQuestionIndex < questions.length -1 ? "Next Question": "Finish Quiz"}
-                        </button>
-                    </div>
-                )}
-                </div>
-
-
-                </div>
-
-                 </>
-                ) : (
-                    <div className="quiz-completed">
-                        <h3>Quiz Completed</h3>
-                        <p>You answered {correctAnswers} out of {questions.length} questions correctly.</p>
-                        <p>Your score: {((correctAnswers / questions.length)*100).toFixed(2)}%</p>
-                    </div>
-                )}
-
             </div>
-     
-    );
+        ) : !quizCompleted ? (
+            <>
+                <div className="grid-container">
+                    <div className="quadrant quadrant1">
+                        <div className="graph-container">
+                            <img src={currentImage} className="graph-image" alt="Current Graph" />
+                        </div>
+                        <div className="controls-container">
+                            <div className="slider-container">
+                                <label htmlFor="supply-slider">Supply</label>
+                                <input
+                                    type="range"
+                                    id="supply-slider"
+                                    min={-1}
+                                    max={1}
+                                    step={1}
+                                    value={supplyPosition}
+                                    onChange={handleSupplyChange}
+                                    className="slider-sup"
+                                    disabled={hasSubmitted}
+                                />
+                                <span className="slider-value">{['Left', 'Middle', 'Right'][supplyPosition + 1]}</span>
+                            </div>
 
+                            <div className="slider-container">
+                                <label htmlFor="demand-slider">Demand</label>
+                                <input
+                                    type="range"
+                                    id="demand-slider"
+                                    min={-1}
+                                    max={1}
+                                    step={1}
+                                    value={demandPosition}
+                                    onChange={handleDemandChange}
+                                    className="slider-dem"
+                                    disabled={hasSubmitted}
+                                />
+                                <span className="slider-value">{['Left', 'Middle', 'Right'][demandPosition + 1]}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="quadrant quadrant2">
+                        <div className="question-container">
+                            <p className="explanation">{questions[currentQuestionIndex].question}</p>
+                            <button onClick={handleSubmit} className="submit-button" disabled={hasSubmitted}>
+                                Submit Answer
+                            </button>
+                        </div>
+
+                        {showAnswer && (
+                            <div className="answer-container">
+                                <p className={isCorrect ? "correct" : "incorrect"}>
+                                    {isCorrect ? "Correct!" : "Incorrect"}
+                                </p>
+                                <p className="explanation">
+                                    {questions[currentQuestionIndex].answer}
+                                </p>
+                                <button onClick={handleNextQuestion} className="next-button">
+                                    {currentQuestionIndex < questions.length - 1 ? "Next Question" : "Finish Quiz"}
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </>
+        ) : (
+            <div className="quiz-completed">
+                <h3>Quiz Completed</h3>
+                <p>You answered {correctAnswers} out of {questions.length} questions correctly.</p>
+                <p>Your score: {((correctAnswers / questions.length) * 100).toFixed(2)}%</p>
+                <div>
+                <Link to="/Home" >
+                    <button class="submit-button">
+                    View Leaderboard
+                    </button>
+                </Link>
+                </div>
+            </div>
+        )}
+    </div>
+);
 };
+
+
