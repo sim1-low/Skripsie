@@ -73,7 +73,7 @@ function Signup(){
                         onChange={(e) => setIsChecked(e.target.checked)}
                     />
                     <label htmlFor="data-awareness" className="checkbox-label">
-                        I am aware that my data will be seen
+                        I am aware that my quiz scores will be seen by other users
                     </label>
                 </div>
                 <button 
