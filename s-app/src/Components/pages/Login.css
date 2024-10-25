@@ -62,4 +62,7 @@
     color: red;
     font-size: 18px ;
   }
+  .checkbox-label {
+    font-size: 14px; /* Adjust the font size as needed */
+}
   
