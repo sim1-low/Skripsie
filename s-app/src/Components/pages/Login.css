@@ -62,6 +62,12 @@
     color: red;
     font-size: 18px ;
   }
+
+  .checkbox-agreement-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Margin for spacing below checkbox */
+}
   .checkbox-label {
     font-size: 14px; /* Adjust the font size as needed */
 }
