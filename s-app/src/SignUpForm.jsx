@@ -66,14 +66,14 @@ function Signup(){
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                    <div>
+                 <div className="checkbox-agreement-container"> 
                     <input
                         type="checkbox"
                         id="data-awareness"
                         onChange={(e) => setIsChecked(e.target.checked)}
                     />
                     <label htmlFor="data-awareness" className="checkbox-label">
-                        I am aware that my quiz scores will be seen by other users
+                    I am aware that my quiz scores will be seen by other users
                     </label>
                 </div>
                 <button 
