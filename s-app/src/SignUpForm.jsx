@@ -9,10 +9,15 @@ function Signup(){
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [isChecked, setIsChecked] = useState(false)
     const navigate =useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if (!isChecked) {
+            alert("You must agree to the terms before submitting.");
+            return;
+        }
         axios.post('https://skripsie-backend.vercel.app/register', {name, email, password})
         .then(result => {console.log(result)
         navigate('/login')
@@ -60,6 +65,16 @@ function Signup(){
                         name="password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                </div>
+                    <div>
+                    <input
+                        type="checkbox"
+                        id="data-awareness"
+                        onChange={(e) => setIsChecked(e.target.checked)}
+                    />
+                    <label htmlFor="data-awareness" className="checkbox-label">
+                        I am aware that my data will be seen
+                    </label>
                 </div>
                 <button 
                     class="login-button"
